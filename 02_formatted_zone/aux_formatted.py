@@ -78,8 +78,8 @@ def load_database(filename_path, db_url):
         try:
             df = pd.read_csv(filename_path)
         except:
-            print('Error in {}. Might be due to error_bad_lines.'.format(filename.partition('.')[0]))
-            df = pd.read_csv(filename_path, error_bad_lines=False)
+            print('Error in {}. Might be due to error_bad_lines. Skipped them.'.format(filename.partition('.')[0]))
+            df = pd.read_csv(filename_path, on_bad_lines='skip')
         
     elif filename.partition('.')[-1] == 'dta':
         df = pd.read_stata(filename_path)

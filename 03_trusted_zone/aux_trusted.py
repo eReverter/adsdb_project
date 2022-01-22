@@ -23,7 +23,7 @@ def psql_insert_copy(table, conn, keys, data_iter):
             table_name, columns)
         cur.copy_expert(sql=sql, file=s_buf)
 
-def integrate_source_versions(source, db_url):
+def integrate_source_versions(source, db_url, source_name=None):
     """
     Inspects all the tables (versions) from a source and merges them in a single one.
 
@@ -48,18 +48,24 @@ def integrate_source_versions(source, db_url):
     # Loop through table names to get the ones relative to the given source
     versions = []
     for table in table_names:
-        if source in table:
+        if source in table and (source != table and source_name != table):
             versions.append(table)
     
     # Concatenate the dataframes in a single version
+    df_init = True
     for version in sorted(versions):
-        if not df:
+        if df_init:
             df = pd.read_sql_table(version, conn)
-        
+            df_init = False
+
         else:
             aux = pd.read_sql_table(version, conn)
             df = pd.concat([df, aux])
 
-    df.to_sql(source, engine, method=psql_insert_copy, if_exists='replace', index = False)
+    if not source_name:
+        source_name = source
 
+    df.to_sql(source_name, engine, method=psql_insert_copy, if_exists='replace', index = False)
+
+    conn.close()
     return

@@ -42,6 +42,8 @@ def rename_csv(filename, newname=None, file_path=r"./persistent/", add_timestamp
         newname = newname.partition('.')[0] + '_' + timestamp + '.{}'.format(filename.partition('.')[-1])
 
     fpath = Path(file_path)
-    os.remove(fpath / newname)
+
+    if os.path.isfile(fpath / newname): 
+        os.remove(fpath / newname)
     os.rename(fpath / filename, fpath / newname)
     return 
