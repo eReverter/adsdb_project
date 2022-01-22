@@ -1,0 +1,12 @@
+name: adsdb
+
+dependencies:
+  - python=3.9.*
+  - numpy
+  - matplotlib
+  - pandas
+  - seaborn
+  - psycopg2
+  - sqlalchemy
+  - pip:
+    - wbdata
