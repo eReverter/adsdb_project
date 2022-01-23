@@ -19,11 +19,13 @@ def tables_to_load(file_list, file_path, db_url, replace=False):
     for file in file_list:
         if replace:
             load_database(os.path.join(file_path, file), db_url)
+            print('{} succesfully loaded the specified tables.'.format(file))
         else:
             if file.partition('.')[0] not in table_names:
                 load_database(os.path.join(file_path, file), db_url)
+                print('{} succesfully loaded the specified tables.'.format(file))
     
-    print('Succesfully loaded the specified tables.')
+    
     return
 
 
@@ -243,6 +245,7 @@ def outliers_duplicated_profiling(db_url, db_tables=None, replace=False, outlier
 
     for table in db_tables:
         if ("profiling_{}.html".format(table)) in os.listdir(output_path) and not replace: # Exists and replace=False
+            print('Quality report for {} allready exists and is not replaced'.format(table))
             continue
         else:
             df = pd.read_sql_table(table, conn)
@@ -254,6 +257,7 @@ def outliers_duplicated_profiling(db_url, db_tables=None, replace=False, outlier
 
             profile = ProfileReport(df, title="{}".format(table), minimal = True)
             profile.to_file(os.path.join(output_path, "profiling_{}.html".format(table)))
+            print('Quality report for {} succesfully generated'.format(table))
 
     conn.close()
     return
