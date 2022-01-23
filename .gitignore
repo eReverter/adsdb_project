@@ -1,6 +1,5 @@
 # Tutorial folder
-landing_zone/temporal/acled_20100101_20211201.zip
-landing_zone/persistant/acled_2021.csv
+analysis/cluster_results
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -133,5 +132,4 @@ dmypy.json
 .csv
 .pyre/
 *.zip
-UNSD_countries.csv
 *.csv
