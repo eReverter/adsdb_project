@@ -1,0 +1,41 @@
+-----------------------------------------------
+Notable dimensions for PCA I are: ['gee', 'rqe', 'rle', 'cce', 'sp_dyn_le00_ma_in']
+Notable dimensions for PCA II are: ['sp_dyn_le00_fe_in']
+-----------------------------------------------
+cluster 0 : ['2005_American Samoa', '2005_Bhutan', '2005_Micronesia (Federated States of)', '2005_Kiribati', '2005_Palau', '2005_Tuvalu', '2005_Vanuatu', '2005_Samoa']
+cluster mean for pc1: 1.2265350061944262
+cluster mean for pc2: -1.2919060009946524
+-----------------------------------------------
+cluster 1 : ['2005_Fiji', '2005_India', '2005_Marshall Islands', '2005_Mongolia', '2005_Philippines', '2005_Solomon Islands', '2005_Tonga']
+cluster mean for pc1: -0.4524638068141728
+cluster mean for pc2: -0.5200235682050466
+-----------------------------------------------
+cluster 2 : ['2005_Brunei Darussalam', '2005_Guam', '2005_Republic of Korea', '2005_Malaysia', '2005_Singapore']
+cluster mean for pc1: 3.502510257415311
+cluster mean for pc2: 0.8047955432780789
+-----------------------------------------------
+cluster 3 : ['2005_Bangladesh', '2005_Indonesia', '2005_Cambodia', "2005_Lao People's Democratic Republic", '2005_Myanmar', '2005_Nepal', '2005_Papua New Guinea', "2005_Democratic People's Republic of Korea"]
+cluster mean for pc1: -3.2511687230619097
+cluster mean for pc2: 0.2563558006827582
+-----------------------------------------------
+cluster 4 : ['2005_China', '2005_Sri Lanka', '2005_Maldives', '2005_Thailand', '2005_Viet Nam']
+cluster mean for pc1: 0.37035301911250507
+cluster mean for pc2: 1.580117772708017
+-----------------------------------------------
+ATTRIBUTE INFORMARTION:
+SI.POV.GINI	Gini index (World Bank estimate)
+NE.IMP.GNFS.KN	Imports of goods and services (constant LCU)
+BX.GSR.GNFS.CD	Exports of goods and services (BoP, current US$)
+NY.GDP.MKTP.CD	GDP (current US$)
+SP.ADO.TFRT	Adolescent fertility rate (births per 1,000 women ages 15-19)
+SP.DYN.LE00.FE.IN	Life expectancy at birth, female (years)
+SP.DYN.LE00.MA.IN	Life expectancy at birth, male (years)
+SL.TLF.0714.MA.ZS	Children in employment, male (% of male children ages 7-14)
+
+vae Voice and Accountability index Estimate 
+pve Political Stability and No Violence index Estimate
+qee Goverment Efectiveness index Estimate
+rqe Regulatory quality index Estimate
+rle Rule of law index estimate
+cce Control of corruption index estimate/n
+-----------------------------------------------
