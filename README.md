@@ -1,10 +1,3 @@
-# Notes
-- Add the question of whether to remove outliers and deduplicates inside the wrapper function.
-- What to do with Boxplots and duplicates information? How can we display it?
-- IDEA: Since we are using a lot of *os.join*, create a script (at the end) where all the paths are created at once. That is, landing, persistent, temporal, etc. are defined at once for every script.
-- Trusted zone: join all the tables that have different timestamps. Deduplicate again. Store metadata that indicates whether a table has alredy been merged or not.
-- Exploitation zone:
-
 # Overall tasks
 
 ### Define the project context
