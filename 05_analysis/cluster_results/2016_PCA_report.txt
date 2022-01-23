@@ -1,0 +1,7 @@
+Notable dimensions for PCA I are: ['gee', 'rqe', 'rle', 'cce', 'bx_gsr_gnfs_cd']
+Notable dimensions for PCA II are: ['ny_gdp_mktp_cd']
+cluster 0 : ['2016_Fiji', '2016_Micronesia (Federated States of)', '2016_Indonesia', '2016_India', '2016_Kiribati', '2016_Sri Lanka', '2016_Maldives', '2016_Marshall Islands', '2016_Mongolia', '2016_Philippines', '2016_Palau', '2016_Solomon Islands', '2016_Thailand', '2016_Tonga', '2016_Tuvalu', '2016_Viet Nam', '2016_Vanuatu']
+cluster 1 : ['2016_American Samoa', '2016_Brunei Darussalam', '2016_Bhutan', '2016_Guam', '2016_Malaysia', '2016_Samoa']
+cluster 2 : ['2016_China']
+cluster 3 : ['2016_Bangladesh', '2016_Cambodia', "2016_Lao People's Democratic Republic", '2016_Myanmar', '2016_Nepal', '2016_Papua New Guinea', "2016_Democratic People's Republic of Korea"]
+cluster 4 : ['2016_Republic of Korea', '2016_Singapore']

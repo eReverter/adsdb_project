@@ -1,0 +1,7 @@
+Notable dimensions for PCA I are: ['gee', 'rqe', 'rle', 'sp_dyn_le00_fe_in', 'sp_dyn_le00_ma_in']
+Notable dimensions for PCA II are: []
+cluster 0 : ['2000_Bangladesh', '2000_Indonesia', '2000_Cambodia', "2000_Lao People's Democratic Republic", '2000_Nepal', '2000_Papua New Guinea', '2000_Solomon Islands']
+cluster 1 : ['2000_Brunei Darussalam', '2000_Republic of Korea', '2000_Malaysia', '2000_Singapore', '2000_Tuvalu']
+cluster 2 : ['2000_Bhutan', '2000_Fiji', '2000_Micronesia (Federated States of)', '2000_India', '2000_Kiribati', '2000_Marshall Islands', '2000_Mongolia', '2000_Philippines', '2000_Vanuatu']
+cluster 3 : ['2000_Myanmar', "2000_Democratic People's Republic of Korea"]
+cluster 4 : ['2000_American Samoa', '2000_China', '2000_Guam', '2000_Sri Lanka', '2000_Maldives', '2000_Palau', '2000_Thailand', '2000_Tonga', '2000_Viet Nam', '2000_Samoa']
