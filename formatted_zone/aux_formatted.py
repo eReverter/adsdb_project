@@ -216,7 +216,7 @@ def set_na_outliers(df, threshold=3):
     
     return df
 
-def outliers_duplicated_profiling(db_url, db_tables=None, replace=False, outlier_treatment='na', delete_duplic_rows=True, delete_duplic_cols=True):
+def outliers_duplicated_profiling(db_url, db_tables=None, replace=False, outlier_treatment='na', delete_duplic_rows=True, delete_duplic_cols=True, output_path="./profiling"):
     """
     Automatically remove the outliers and duplicates of a table. Profile it afterwards. Do this if and only if there is no profiling yet.
     Additionally, the profiling can be redone if the table name is specified and the replace statement set. Bare in mind it will compute the outliers again.
@@ -242,7 +242,7 @@ def outliers_duplicated_profiling(db_url, db_tables=None, replace=False, outlier
         db_tables = inspector.get_table_names()
 
     for table in db_tables:
-        if ("profiling_{}.html".format(table)) in os.listdir("./profiling") and not replace: # Exists and replace=False
+        if ("profiling_{}.html".format(table)) in os.listdir(output_path) and not replace: # Exists and replace=False
             continue
         else:
             df = pd.read_sql_table(table, conn)
@@ -253,7 +253,7 @@ def outliers_duplicated_profiling(db_url, db_tables=None, replace=False, outlier
             df = delete_duplicates(df, to_delete=(int(delete_duplic_rows == True),int(delete_duplic_cols == True)))
 
             profile = ProfileReport(df, title="{}".format(table), minimal = True)
-            profile.to_file("./profiling/profiling_{}.html".format(table))
+            profile.to_file(os.path.join(output_path, "profiling_{}.html".format(table)))
 
     conn.close()
     return
