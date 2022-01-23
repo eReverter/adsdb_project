@@ -9,6 +9,7 @@ dependencies:
   - psycopg2
   - sqlalchemy
   - scipy
+  - pandas_profiling
   - pip:
     - wbdata
     - pyenchant
