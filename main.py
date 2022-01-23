@@ -21,7 +21,9 @@ print('\n############################# Formatted Zone ##########################
 
 # Formatted zone
 persistent_files = [x for x in os.listdir(persistent) if x.partition('.')[-1] in ['csv', 'dta' , 'xlsx']]
-db_url_source = 'postgresql+psycopg2://postgres:root@localhost:5432/adsdb'
+src_name = 'name'
+src_password = 'password'
+db_url_source = 'postgresql+psycopg2://postgres:{}@localhost:5432/{}'.format(src_password, src_name)
 output_path = os.path.join(formatted, "profiling")
 
 tables_to_load(persistent_files, persistent, db_url_source, replace=True)
@@ -41,7 +43,9 @@ for source in sources:
 print('\n############################# Exploitation Zone #############################\n')
 
 # Exploitation zone
-db_url_schema = 'postgresql+psycopg2://postgres:root@localhost:5432/cluster_countries'
+sch_name = 'name'
+sch_password = 'password'
+db_url_schema = 'postgresql+psycopg2://postgres:{}@localhost:5432/{}'.format(sch_password, sch_name)
 schema_path = os.path.join(exploitation, './schemas/conflict_schema.sql')
 output_path = os.path.join(exploitation, "profiling")
 

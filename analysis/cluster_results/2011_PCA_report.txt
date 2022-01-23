@@ -1,0 +1,41 @@
+-----------------------------------------------
+Notable dimensions for PCA I are: ['gee', 'rqe', 'rle', 'cce', 'sp_dyn_le00_ma_in']
+Notable dimensions for PCA II are: ['bx_gsr_gnfs_cd', 'ny_gdp_mktp_cd']
+-----------------------------------------------
+cluster 0 : ['2011_Bangladesh', '2011_Fiji', '2011_Indonesia', '2011_India', '2011_Cambodia', "2011_Lao People's Democratic Republic", '2011_Nepal', '2011_Philippines', '2011_Papua New Guinea', "2011_Korea (Democratic People's Republic of)", '2011_Solomon Islands', '2011_Viet Nam']
+cluster mean for pc1: -1.8648625363248854
+cluster mean for pc2: -0.1595096562625808
+-----------------------------------------------
+cluster 1 : ['2011_Brunei Darussalam', '2011_Guam', '2011_Hong Kong', '2011_Korea, Republic of', '2011_Macao', '2011_Malaysia', '2011_Singapore']
+cluster mean for pc1: 3.6514217953586425
+cluster mean for pc2: 0.46300471958490397
+-----------------------------------------------
+cluster 2 : ['2011_China']
+cluster mean for pc1: -0.15045809575034452
+cluster mean for pc2: 7.470430968721976
+-----------------------------------------------
+cluster 3 : ['2011_Myanmar']
+cluster mean for pc1: -5.022796800047793
+cluster mean for pc2: 3.6551621044917746
+-----------------------------------------------
+cluster 4 : ['2011_American Samoa', '2011_Bhutan', '2011_Micronesia (Federated States of)', '2011_Kiribati', '2011_Sri Lanka', '2011_Maldives', '2011_Marshall Islands', '2011_Mongolia', '2011_Palau', '2011_Thailand', '2011_Tonga', '2011_Tuvalu', '2011_Vanuatu', '2011_Samoa']
+cluster mean for pc1: 0.14226091172759042
+cluster mean for pc2: -0.8894650167969365
+-----------------------------------------------
+ATTRIBUTE INFORMARTION:
+SI.POV.GINI	Gini index (World Bank estimate)
+NE.IMP.GNFS.KN	Imports of goods and services (constant LCU)
+BX.GSR.GNFS.CD	Exports of goods and services (BoP, current US$)
+NY.GDP.MKTP.CD	GDP (current US$)
+SP.ADO.TFRT	Adolescent fertility rate (births per 1,000 women ages 15-19)
+SP.DYN.LE00.FE.IN	Life expectancy at birth, female (years)
+SP.DYN.LE00.MA.IN	Life expectancy at birth, male (years)
+SL.TLF.0714.MA.ZS	Children in employment, male (% of male children ages 7-14)
+
+vae Voice and Accountability index Estimate 
+pve Political Stability and No Violence index Estimate
+qee Goverment Efectiveness index Estimate
+rqe Regulatory quality index Estimate
+rle Rule of law index estimate
+cce Control of corruption index estimate/n
+-----------------------------------------------

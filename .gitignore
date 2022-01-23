@@ -1,6 +1,3 @@
-# Tutorial folder
-analysis/cluster_results
-
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
