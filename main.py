@@ -3,8 +3,11 @@ from landing_zone.aux_landing import *
 from formatted_zone.aux_formatted import *
 from trusted_zone.aux_trusted import *
 from exploitation_zone.aux_exploitation import *
+from analysis.aux_analysis import * 
 import os
-landing, temporal, persistent, formatted, trusted, exploitation = connect_paths()
+import sqlalchemy
+import pandas as pd
+landing, temporal, persistent, formatted, trusted, exploitation, analysis = connect_paths()
 
 # Landing zone
 temporal_files = [x for x in os.listdir(temporal) if x.partition('.')[-1] in ['csv', 'dta' , 'xlsx']]
@@ -35,6 +38,16 @@ db_url_schema = 'postgresql+psycopg2://postgres:root@localhost:5432/cluster_coun
 schema_path = os.path.join(exploitation, './schemas/conflict_schema.sql')
 
 create_schema(db_url_schema, schema_path)
-populate_schema(db_url_source, db_url_schema)
+populate_dimensions(db_url_source, db_url_schema)
+populate_facts(db_url_source, db_url_schema)
 
 # Analysis
+engine = sqlalchemy.create_engine(db_url_schema)
+conn = engine.connect()
+stmnt = "select * from wgi wg, countries_dim cd, wbd wb, years_dim yd where wg.code = cd.iso and wg.year = yd.id  and wb.economy = cd.iso and wb.time = yd.id;"
+dataframe = pd.read_sql(stmnt, conn)
+conn.close()
+
+n_clusters = 5
+df = preprocess(dataframe)
+df = cluster(df, n_clusters, analysis_path=analysis)

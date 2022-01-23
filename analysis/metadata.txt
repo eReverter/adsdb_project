@@ -1,0 +1,15 @@
+SI.POV.GINI	Gini index (World Bank estimate)
+NE.IMP.GNFS.KN	Imports of goods and services (constant LCU)
+BX.GSR.GNFS.CD	Exports of goods and services (BoP, current US$)
+NY.GDP.MKTP.CD	GDP (current US$)
+SP.ADO.TFRT	Adolescent fertility rate (births per 1,000 women ages 15-19)
+SP.DYN.LE00.FE.IN	Life expectancy at birth, female (years)
+SP.DYN.LE00.MA.IN	Life expectancy at birth, male (years)
+SL.TLF.0714.MA.ZS	Children in employment, male (% of male children ages 7-14)
+
+vae Voice and Accountability index Estimate 
+pve Political Stability and No Violence index Estimate
+qee Goverment Efectiveness index Estimate
+rqe Regulatory quality index Estimate
+rle Rule of law index estimate
+cce Control of corruption index estimate
