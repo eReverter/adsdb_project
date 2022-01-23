@@ -1,7 +1,0 @@
-Notable dimensions for PCA I are: ['gee', 'rqe', 'rle', 'cce', 'sp_dyn_le00_ma_in']
-Notable dimensions for PCA II are: ['bx_gsr_gnfs_cd', 'ny_gdp_mktp_cd', 'sp_dyn_le00_fe_in']
-cluster 0 : ['2008_Brunei Darussalam', '2008_Guam', '2008_Republic of Korea', '2008_Malaysia', '2008_Singapore']
-cluster 1 : ['2008_Fiji', '2008_Indonesia', '2008_India', '2008_Sri Lanka', '2008_Maldives', '2008_Mongolia', '2008_Philippines', '2008_Solomon Islands', '2008_Thailand', '2008_Tonga', '2008_Viet Nam']
-cluster 2 : ['2008_China']
-cluster 3 : ['2008_American Samoa', '2008_Bhutan', '2008_Micronesia (Federated States of)', '2008_Kiribati', '2008_Marshall Islands', '2008_Palau', '2008_Tuvalu', '2008_Vanuatu', '2008_Samoa']
-cluster 4 : ['2008_Bangladesh', '2008_Cambodia', "2008_Lao People's Democratic Republic", '2008_Myanmar', '2008_Nepal', '2008_Papua New Guinea', "2008_Democratic People's Republic of Korea"]

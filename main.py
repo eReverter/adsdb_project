@@ -6,8 +6,6 @@ from exploitation_zone.aux_exploitation import *
 import os
 landing, temporal, persistent, formatted, trusted, exploitation = connect_paths()
 
-# Define parameters
-
 # Landing zone
 temporal_files = [x for x in os.listdir(temporal) if x.partition('.')[-1] in ['csv', 'dta' , 'xlsx']]
 

@@ -1,7 +1,0 @@
-Notable dimensions for PCA I are: ['gee', 'rqe', 'rle', 'bx_gsr_gnfs_cd', 'sp_dyn_le00_ma_in']
-Notable dimensions for PCA II are: ['ny_gdp_mktp_cd']
-cluster 0 : ['2015_American Samoa', '2015_Brunei Darussalam', '2015_Bhutan', '2015_Guam', '2015_Malaysia', '2015_Samoa']
-cluster 1 : ['2015_Republic of Korea', '2015_Singapore']
-cluster 2 : ['2015_Fiji', '2015_Micronesia (Federated States of)', '2015_Indonesia', '2015_India', '2015_Kiribati', '2015_Sri Lanka', '2015_Maldives', '2015_Marshall Islands', '2015_Mongolia', '2015_Philippines', '2015_Palau', '2015_Solomon Islands', '2015_Thailand', '2015_Tonga', '2015_Tuvalu', '2015_Viet Nam', '2015_Vanuatu']
-cluster 3 : ['2015_China']
-cluster 4 : ['2015_Bangladesh', '2015_Cambodia', "2015_Lao People's Democratic Republic", '2015_Myanmar', '2015_Nepal', '2015_Papua New Guinea', "2015_Democratic People's Republic of Korea"]

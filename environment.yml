@@ -8,5 +8,7 @@ dependencies:
   - seaborn
   - psycopg2
   - sqlalchemy
+  - scipy
   - pip:
     - wbdata
+    - pyenchant
