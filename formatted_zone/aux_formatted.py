@@ -90,7 +90,7 @@ def load_database(filename_path, db_url):
         df = pd.read_excel(filename_path)
 
     else:
-        print('There is no data to be loaded')
+        print('There is no data to be loaded.')
         return
 
     df.to_sql('{}'.format(filename.partition('.')[0]), engine, method=psql_insert_copy, if_exists='replace', index = False)
@@ -102,7 +102,7 @@ def single_table_to_profile(lst):
     print('Tables in the database:',", ".join(map(str,lst)))
     answer = input ("choose a table to analyse:")
     while answer not in lst:
-        print('Please type valid table name')
+        print('Please type valid table name.')
         answer = input ("choose a table to analyse:")
     return answer
 
@@ -245,7 +245,7 @@ def outliers_duplicated_profiling(db_url, db_tables=None, replace=False, outlier
 
     for table in db_tables:
         if ("profiling_{}.html".format(table)) in os.listdir(output_path) and not replace: # Exists and replace=False
-            print('Quality report for {} allready exists and is not replaced'.format(table))
+            print('Quality report for {} already exists and is not replaced.'.format(table))
             continue
         else:
             df = pd.read_sql_table(table, conn)
@@ -257,7 +257,7 @@ def outliers_duplicated_profiling(db_url, db_tables=None, replace=False, outlier
 
             profile = ProfileReport(df, title="{}".format(table), minimal = True)
             profile.to_file(os.path.join(output_path, "profiling_{}.html".format(table)))
-            print('Quality report for {} succesfully generated'.format(table))
+            print('Quality report for {} succesfully generated.'.format(table))
 
     conn.close()
     return

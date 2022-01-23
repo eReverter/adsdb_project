@@ -62,14 +62,14 @@ def integrate_source_versions(source, db_url, source_name=None):
             aux = pd.read_sql_table(version, conn)
             df = pd.concat([df, aux])
 
-    print('Tables from {} integrated into one table'.format(source))
+    print('Tables from {} integrated into one table.'.format(source))
 
     if not source_name:
         source_name = source
 
     df.drop_duplicates()
     df.to_sql(source_name, engine, method=psql_insert_copy, if_exists='replace', index = False)
-    print('Single source table succesfully loaded into database')
+    print('Single source table succesfully loaded into database.')
 
     conn.close()
     return

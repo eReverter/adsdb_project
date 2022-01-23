@@ -67,6 +67,7 @@ def cluster(list_of_dataframes, nr_of_clusters = 5, analysis_path='.\analysis'):
         index = df.index
         pca =pca.fit(df)
         X = pca.transform(df)
+        print('PCA is finished.')
 
         pca_res = pd.DataFrame(data = X
                     , columns = ['pc1', 'pc2'])
@@ -79,6 +80,7 @@ def cluster(list_of_dataframes, nr_of_clusters = 5, analysis_path='.\analysis'):
         # Calculate clusters
         kmeans = KMeans(n_clusters=nr_of_clusters, n_init = 50).fit(df)
         df['cluster'] = kmeans.labels_.astype(str)
+        print('Data has been clustered.')
         df_with_countryname = df.copy()
         df_with_countryname['country'] = df_with_countryname.index
 
@@ -118,3 +120,6 @@ def cluster(list_of_dataframes, nr_of_clusters = 5, analysis_path='.\analysis'):
             print('/n', file = f)
         print('-----------------------------------------------', file = f)
         f.close()
+
+        print('The reports have been generated and exported.\n')
+        return
