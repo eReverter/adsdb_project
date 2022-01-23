@@ -11,5 +11,6 @@ def connect_paths():
     formatted_zone = os.path.join(main, 'formatted_zone')
     trusted_zone = os.path.join(main, 'trusted_zone')
     exploitation_zone = os.path.join(main, 'exploitation_zone')
+    analysis_path = os.path.join(main, 'analysis')
 
-    return landing_zone, temporal, persistent, formatted_zone, trusted_zone, exploitation_zone
+    return landing_zone, temporal, persistent, formatted_zone, trusted_zone, exploitation_zone, analysis_path
