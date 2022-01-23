@@ -36,10 +36,12 @@ for source in sources:
 # Integrated zone
 db_url_schema = 'postgresql+psycopg2://postgres:root@localhost:5432/cluster_countries'
 schema_path = os.path.join(exploitation, './schemas/conflict_schema.sql')
+output_path = os.path.join(exploitation, "profiling")
 
 create_schema(db_url_schema, schema_path)
 populate_dimensions(db_url_source, db_url_schema)
 populate_facts(db_url_source, db_url_schema)
+profile_schema(db_url_schema, output_path=output_path)
 
 # Analysis
 engine = sqlalchemy.create_engine(db_url_schema)
