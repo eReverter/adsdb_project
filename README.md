@@ -1,68 +1,47 @@
-# Overall tasks
+# Data Science Pipeline for Clustering Asian Countries Based on Developmental, Geo-Political and Economical Data
 
-### Define the project context
+This project aims to create a data management and analysis backbone for clustering Asian countries based on various indicators, including economical and governmental data. Three different data sets are used along with various tools, and the project involves four different zones for data management. The final schema is queried, and the preprocess and cluster functions are used for data analysis. While the project increases automation and streamlines processes, there is still room for improvement. Everything is computed through Python and SQL.
 
-- Define context and problem to solve. Do we go for conflicts database?
+The following is a brief summary of each section of the report. For more details, see the [pdf](ADSDB.pdf).
 
-**Constraint 1.** Your project must consider, at least, two different data sources that you will have 
-to integrate during the project.
+## TOC
+- [Project Aim](#project-aim)
+- [Data Sources and Tool Choices](#data-sources-and-tool-choices)
+- [Data Management Backbone](#data-management-backbone)
+  - [Landing Zone](#landing-zone)
+  - [Formatted Zone](#formatted-zone)
+  - [Trusted Zone](#trusted-zone)
+  - [Exploitation Zone](#exploitation-zone)
+- [Conclusion](#conclusion)
 
-### Implement the organization data management backbone
+## Project Aim
 
-- Create a **landing zone** on google drive. It must have a temporal and a persistent folder.
-- Create a **formatted zone** with a relational model. Use PostgreSQL. Set up the databases on our computers. As a thule of rumb, create one table for each source version.
-- Crete a **trusted zone** with a single table per source. It requires two steps: query over the formatted zone to load the tables, and a set of processes to treat data quality. *PyDeequ, Trifacta, OpenRefine* can be used in this last step.
-- Create a **exploitation zone** where the view for the analysis is generated. It is key to implement data integration and data quality processes for integration in here. From trusted to exploitation -> ETL.
-- Notebooks between zones should be created to run the transformations.
+The aim of the project is to create a Data Management Backbone and a Data Analysis Backbone for various data sets, with a focus on developing good habits for structuring Data Science projects. The data analysis involves clustering Asian countries based on economical and governmental indicators, but this is not the primary objective of the project.
 
-**Constraint 2.** Organize your notebooks per zones. For example, if you use Google Drive, create 
-a folder named notebooks and inside group your notebooks in folders per zone: landing zone, 
-formatted zone, trusted zone and exploitation zone.
+## Data Sources and Tool Choices
 
-**Constraint 3.** Use a meaningful name convention for the notebooks and add text and charts 
-inside the notebook to explain your processes. You are advised to use Python as prototying 
-language.
+The project uses three data sets for the Data Management backbone: World Governance Indicators, World Bank Data, and United Nations Data Bank. The report also outlines the different tools used for collaboration (Github), data storage (**PgAdmin 4** and **DBeaver**), data transformation (**Python** scripts with packages like `psycopg2`, `sqlalchemy`, `pandas`, and `pandas_profiling`), pipelining (wrapper functions in Python), and data analysis (`scikit-learn` and `plotly` packages in Python).
 
-**Constraint 4.** In the trusted and exploitation zones, each data quality process must be separated 
-in its own notebook (unless you use an external tool, then, be sure to talk to your supervisor to 
-agree on how to open this information so that it can be evaluated).
+## Data Management Backbone
 
-**Constraint 5.** Include a notebook per database that explains its structure (schema) and profiles 
-the data in that database. This way, the supervisor does not need access to the database.
+Involves four different zones, namely Landing Zone, Formatted Zone, Trusted Zone, and Exploitation Zone. The Landing Zone contains data sources that can be directly downloaded, while the Formatted Zone includes a local database where the source tables are stored, and data quality processes are performed. In the Trusted Zone, different versions of a source are integrated into a single table, while in the Exploitation Zone, the final schema where the data has to be inserted is considered, and data is organized into different data frames for analysis.
 
-### Implement, at least, one data analysis backbone
+### Landing Zone
 
-- Create another different database with the **analytical sandbox** required to perform your data analysis. The DBMS used in the previous sections is a good candidate.
-- Generate training and validation sets in the **feature generation zone**. It is ok to map variables as features. *Hopsworks, Feature Store, etc.* can be used.
-- Model training and validation can be done in Python, R, etc. Do not focus on this part, just do something coherent.
+It retrieves the World Bank source data using the API provided and creates a .csv file containing the chosen indicators for a time span of 20 years. The core of the landing zone consists of a script that moves the files from the temporal zone to the persistent zone using the built-in shutil package while automatically adding a timestamp.
 
+### Formatted Zone
 
-**Constraint 6.** The scripts to generate the analytical sandbox (if you implement it), the feature 
-selection, model training and validation must be implemented in notebooks and organized in 
-subfolders (e.g., inside an /analysis/ folder). If you use a MLOps tools, be sure to talk to your 
-supervisor to agree on how to open this information so that it can be evaluated.
+A connection to a local database is initiated, and the tables_to_load function acts as a wrapper that creates and fills different tables in the database. The pandas df.to_sql then bulk loads that table using sqlalchemy tools, where we also specify the method used to load it, called psql_insert_copy. Data quality processes are performed, and the outliers_duplicated_profiling function generates .html files for each table, which contain an extensive profiling report for each column.
 
-**Constraint 7.** Be sure to include notebooks to scrutinize each data repository you create (follow 
-the same criteria as stated in the data management backbone: i.e., schema and profiles). Special 
-attention for that storing the training and validation datasets. Be sure the profile information 
-you generate there is meaningful for the analysis at hand.
+### Trusted Zone
 
-### Explain your decisions and guarantee reproducibility
+Different versions of a source are integrated into a single table using the integrate_source_versions function. It takes as arguments the source to be considered and the url to the database containing the tables to be integrated.
 
-- Everything done until here corresponds to the prototyping. Henceforth, the operations environment is generated.
-  - Generate orchestrated executable code from the notebooks.
-  -  Place it into a continuous integration environment (e.g., Gitlab).
+### Exploitation Zone
 
-^It is optional to develop an integration environment. In a real project we would do it.
+The final schema is queried for joining by time dimension and country code. The core of the Data Analysis Backbone consists of two important functions: preprocess and cluster. The preprocess function first removes rows that only contain NA’s and imputes the others. The cluster function uses the list of data frames as input and applies a k-means clustering algorithm for which the user specifies the desired amount of clusters.
 
-^Three aspects that will be positively considered in this layer:
-- A simple code monitoring the execution of the model in runtime.
-- Enrich the extracted code from the notebooks with error handling, such as basic unit testing.
-- Couple a quality control tool to control the quality of your code (e.g., SonarQube) and report about it.
+## Conclusion
 
-**Constraint 8.** Create a code repository orchestrating all the code from your notebooks able to
-generate your operations environment.
-
-**Constraint 9.** Your operations layer must be able to execute and ingest a new data source and 
-propagate it throughout all layers, including the execution of the model in runtime upon new 
-arrival of data.
+In general, the objective of the project was to increase automation and streamline all processes performed by creating a pipeline. However, there is still room for improvement, as the final outcome is not a conclusive solution for all potential challenges that may arise.
